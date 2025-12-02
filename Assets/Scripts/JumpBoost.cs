@@ -1,16 +1,14 @@
 using UnityEngine;
 
-public class JumpBoost : MonoBehaviour
+public class JumpBoost : PowerUpBase
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override void ApplayEffect(Player player)
     {
-        
+        if (!IsEffectActive)
+        {
+            player.SetJumpForce(20);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

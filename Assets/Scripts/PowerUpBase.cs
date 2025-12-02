@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class PowerUpBase
+public abstract class PowerUpBase : MonoBehaviour
 {
     protected bool IsEffectActive = false;
 

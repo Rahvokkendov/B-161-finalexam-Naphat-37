@@ -5,6 +5,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     public float MoveSpeed { get => moveSpeed; private set => moveSpeed = value; }
     [SerializeField] private float jumpForce = 10f;
+    public float JumpForce { get => jumpForce; private set => jumpForce = value; }
     private bool isInvulnerable = false;
     public bool IsInvulnerable { get => isInvulnerable; private set => isInvulnerable = value; }
     public Rigidbody2D rb;
@@ -19,6 +20,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         float moveInput = Input.GetAxisRaw("Horizontal");
         rb.linearVelocity = new Vector2 (moveInput * moveSpeed, rb.linearVelocity.y);
         if (Input.GetKeyDown(KeyCode.Space))
@@ -27,13 +29,28 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+
+        
+    }
+
+
+    public void SetJumpForce(float newForce)
+    {
+        newForce = JumpForce;
+        Debug.Log($"Your Jump Force: {JumpForce}");
+    }
     public void SetMoveSpeed(float newSpeed)
     {
+        newSpeed = MoveSpeed;
         Debug.Log($"Your Speed: {MoveSpeed}");
     }
 
     public void SetInvulnerability(bool isEnable)
     {
+        isEnable = IsInvulnerable;
         Debug.Log($"Your Invulnerability: {IsInvulnerable}");
     }
 }
