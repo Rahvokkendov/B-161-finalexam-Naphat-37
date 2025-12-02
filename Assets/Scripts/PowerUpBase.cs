@@ -1,16 +1,8 @@
 using UnityEngine;
 
-public class PwoerUpBase : MonoBehaviour
+public abstract class PowerUpBase
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    protected bool IsEffectActive = false;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public abstract void ApplayEffect(Player player);
 }
