@@ -31,26 +31,29 @@ public class Player : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        
-
+        PowerUpBase powerUp = collision.GetComponent<PowerUpBase>();
+        if (powerUp != null) 
+        {
+            powerUp.ApplayEffect(this);
+        }
         
     }
 
 
     public void SetJumpForce(float newForce)
     {
-        newForce = JumpForce;
+        JumpForce = newForce;
         Debug.Log($"Your Jump Force: {JumpForce}");
     }
     public void SetMoveSpeed(float newSpeed)
     {
-        newSpeed = MoveSpeed;
+        MoveSpeed = newSpeed;
         Debug.Log($"Your Speed: {MoveSpeed}");
     }
 
     public void SetInvulnerability(bool isEnable)
     {
-        isEnable = IsInvulnerable;
+        IsInvulnerable = isEnable;
         Debug.Log($"Your Invulnerability: {IsInvulnerable}");
     }
 }
